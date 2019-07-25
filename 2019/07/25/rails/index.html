@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <!-- Use Rails Active Storage for dynamic title -->
+  <title>Hexo by David</title>
+
+  <!-- Twitter bootstrap (via cdn) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      background: rgb(244, 239, 241);
+      background: radial-gradient(circle, rgba(244, 239, 241, 1) 0%, rgba(214, 220, 228, 0.9924508426966292) 100%);
+    }
+
+    .jumbotron {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .jumbotron .container {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .jumbotron:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1291&q=80://images.unsplash.com/photo-1529465230221-a0d10e46fcbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80://images.unsplash.com/photo-1526649661456-89c7ed4d00b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1171&q=80.com/photo-1482062364825-616fd23b8fc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(2px);
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Hexo by David
+      </a>
+    </div>
+  </div>
+</nav>
+  <div class="container-fluid">
+    <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <h1 class="alert alert-default">Rails Active Storage</h1>
+    <div class="well">
+      <p>New ways to handle file uploads, share credentials with your team, set up Content Security Policy, even start your application—we are looking at what’s new in Rails 5.2 and focus on Active Storage with a step-by-step introduction to the new framework.</p>
+<p>Even though we did not get it as a promised New Year present and were just told to wait another month for the official release, Rails 5.2 was assigned RC1 status and is now considered stable. So we might as well start unwrapping! You can install Rails 5.2 today by running gem install rails –prerelease.</p>
+<p>Out of all new shiny things that the last major update before Rails 6 brings, Active Storage stands out the most. For the first time in Rails history, we get a built-in solution for handling file uploads in our projects. According to DHH, Active Storage was extracted from Basecamp 3, so it claims to be a framework “born from production”.</p>
+<p>We will talk about Active Storage first, and then, if you bear with </p>
+<h3 id="With-things-attached"><a href="#With-things-attached" class="headerlink" title="With things attached"></a>With things attached</h3><p>Disclaimer: we will not go into comparing Active Storage with existing solutions, be it CarrierWave, Paperclip or Shrine, but rather try to make a beginner-friendly introduction to the framework as we get to know it ourselves.</p>
+<p>Enabling Active Storage in your application starts with a Rake task: running rails active_storage:install in the command line will add a new migration to your db/migrate folder. Once executed, it creates two tables that Active Storage needs to deliver on its promises: active_storage_attachments and active_storage_blobs. Here is what they do, according to framework’s README:</p>
+<p>Blob stands for “binary large object”, as our attachments are, in essence, large binary files. active_storage_blobs does not put the binary into a database, but tracks its location, along with information on file’s size, content type, and metadata.</p>
+<p>“Active Storage uses polymorphic associations via the Attachment join model, which then connects to the actual Blob. Blob models store attachment metadata (filename, content-type, etc.), and their identifier key in the storage service.”</p>
+<p>This approach sets Active Storage apart from the competition. Paperclip, Carrierwave, Shrine—all these popular solutions require you to add columns to existing models. The only widely used gem that relies on virtual attributes to handle attachments is Attachinary, a ridiculously easy-to-use proprietary solution that is locked to Cloudinary’s storage.</p>
+<p>Support for other cloud services can be implemented by extending ActiveStorage::Service class.</p>
+<p>Active Storage, it seems, takes the same direction, but allows you to choose where to keep your files: be it your hardware or popular cloud providers. Amazon S3, Google Cloud Storage, and Microsoft Azure Storage are supported out of the box.</p>
+
+    </div>
+
+    <div class="text-muted" align="right">
+      2019-07-25
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-1"></div>
+  <a class="btn btn-warning" href="/"> Home</a>
+</div>
+  </div>
+</body>
+
+</html>

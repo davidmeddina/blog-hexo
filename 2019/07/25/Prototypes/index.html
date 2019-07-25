@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <!-- Use Prototypes JS for dynamic title -->
+  <title>Hexo by David</title>
+
+  <!-- Twitter bootstrap (via cdn) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      background: rgb(244, 239, 241);
+      background: radial-gradient(circle, rgba(244, 239, 241, 1) 0%, rgba(214, 220, 228, 0.9924508426966292) 100%);
+    }
+
+    .jumbotron {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .jumbotron .container {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .jumbotron:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1291&q=80://images.unsplash.com/photo-1529465230221-a0d10e46fcbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80://images.unsplash.com/photo-1526649661456-89c7ed4d00b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1171&q=80.com/photo-1482062364825-616fd23b8fc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: blur(2px);
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Hexo by David
+      </a>
+    </div>
+  </div>
+</nav>
+  <div class="container-fluid">
+    <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <h1 class="alert alert-default">Prototypes JS</h1>
+    <div class="well">
+      <p>Objects in JavaScript have an internal property known as prototype. It is simply a reference to another object and contains common attributes/properties across all instances of the object. An object’s prototype attribute specifies the object from which it inherits properties.</p>
+<p>The Array object has a prototype Array.prototype and the object instance, num, inherits the properties of the Array object. This is why you can use a method like sort() on an array instance.</p>
+<p>Same thing goes for other objects like Date(), String(), Function() etc.<br>When a constructor (a.k.a. pseudo classical inheritance) function is built, the newly created objects inherit the prototype properties of the constructor function and that’s the critical feature of constructors. They (constructor functions) are built for the initialization of newly created objects. Constructors are invoked using the new keyword.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Car = <span class="function"><span class="keyword">function</span>(<span class="params">color, model, dateManufactured</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.color = color;</span><br><span class="line"><span class="keyword">this</span>.model = model;</span><br><span class="line"><span class="keyword">this</span>.dateManufactured = dateManufactured;</span><br><span class="line">&#125;;</span><br><span class="line">Car.prototype.getColor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.color;</span><br><span class="line">&#125;;</span><br><span class="line">Car.prototype.getModel = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.model;</span><br><span class="line">&#125;;</span><br><span class="line">Car.prototype.carDate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">`This <span class="subst">$&#123;<span class="keyword">this</span>.model&#125;</span> was manufactured in the year <span class="subst">$&#123;<span class="keyword">this</span>.dateManufactured&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> firstCar = <span class="keyword">new</span> Car(<span class="string">'red'</span>, <span class="string">'Ferrari'</span>, <span class="string">'1985'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(firstCar);</span><br><span class="line"><span class="built_in">console</span>.log(firstCar.carDate()); <span class="comment">// à This Ferrari was manufactured in the year 1985.</span></span><br></pre></td></tr></table></figure>
+
+<p>From the example above, the carDate, getColor and getModel functions are properties of the Car object and instances of the Car object like firstCar can inherit all its properties.</p>
+<h3 id="Prototype-chain"><a href="#Prototype-chain" class="headerlink" title="Prototype chain"></a>Prototype chain</h3><p>When an object gets a request for a property that it does not have, its prototype will be searched for the property, then the prototype’s prototype, and so on. So who is the prototype of an object? It is the great ancestral prototype, the entity behind almost all objects, Object.prototype. Many objects don’t directly have Object.prototype as their prototype, but instead have another object that provides a different set of default properties. Functions derive from Function.prototype, and arrays derive from Array.prototype and so on.</p>
+<p>That’s it for JavaScript prototypes. I hope you understand what they mean and how to use them.</p>
+<p>Taken from <a href="https://medium.com/backticks-tildes/javascript-prototypes-ee46810e4866" target="_blank" rel="noopener">here</a></p>
+
+    </div>
+
+    <div class="text-muted" align="right">
+      2019-07-25
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<div class="row">
+  <div class="col-sm-1"></div>
+  <a class="btn btn-warning" href="/"> Home</a>
+</div>
+  </div>
+</body>
+
+</html>
