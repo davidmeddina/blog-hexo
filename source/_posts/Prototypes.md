@@ -1,6 +1,6 @@
 ---
 layout: understanding
-title: Prototypes
+title: Prototypes JS
 date: 2019-07-25 15:17:42
 tags:
 ---
