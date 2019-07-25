@@ -45,7 +45,7 @@
           <%- truncate(post.content, {length:550}) %>
           <br>
         </div>
-          <div align="right"><a href="<%- url_for(post.path) %>" class="btn btn-info">Ver artículo</a></div>
+          <div align="right"><a href="<%- url_for(post.path) %>" class="btn btn-info">Read artícle</a></div>
           <span class="label label-warning"><%= date(post.date, config.date_format) %></span>
       </div>
 
