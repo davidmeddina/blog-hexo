@@ -1,33 +1,36 @@
 <div class="jumbotron">
   <div class="container">
-  <h1><%= config.title %></h1>
+    <h1><%= config.title %></h1>
     <p><strong>Hexo by David</strong> is a blog built using Hexo, one of the most popular tools to create blog sites
       using
       Javascript and NodeJS.
       In this blog you can find the latest publications about progammimng languages and related topics.</p>
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
-    </div>
+  </div>
 </div>
 
 <div class='row'>
-  <ul>
+  
     <% page.posts.each(function(post){ %>
-    <li>
       <h3>
-        <a href="<%- url_for(post.path) %>">
-          <%= post.title %>
-        </a>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a href="<%- url_for(post.path) %>" class="panel-title">
+              <%= post.title %>
+            </a>
+          </div>
       </h3>
-      <div class='text-muted'>
-        <%= date(post.date, config.date_format) %>
+      <div class="panel-body">
+        <div class='text-muted'>
+            <%- truncate(post.content, {length:550}) %>
+          <%= date(post.date, config.date_format) %>
+        </div>
       </div>
-
+      
       <% if(post.excerpt) { %>
-      <p>
-        <%- post.excerpt %>
-      </p>
-      <% } %>
-    </li>
-    <% }) %>
-  </ul>
+<p>
+  <%- post.excerpt %>
+</p>
+<% } %>
+<% }) %>
 </div>
