@@ -1,14 +1,34 @@
 ---
-title: My new post
+title: Arrow Functios JS
 date: 2019-07-24 13:24:15
 tags:
 ---
+Arrow functions – also called “fat arrow” functions, from CoffeeScript (a transcompiled language) — are a more concise syntax for writing function expressions. They utilize a new token, =>, that looks like a fat arrow. Arrow functions are anonymous and change the way this binds in functions.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu bibendum at varius vel pharetra. Sollicitudin tempor id eu nisl nunc. Malesuada fames ac turpis egestas integer. Eu ultrices vitae auctor eu. Elit duis tristique sollicitudin nibh sit amet commodo nulla. Quis vel eros donec ac odio tempor. Tellus in metus vulputate eu scelerisque. Orci nulla pellentesque dignissim enim sit amet venenatis urna. Dictum non consectetur a erat nam. Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Turpis massa tincidunt dui ut. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et. Velit aliquet sagittis id consectetur purus.
+Arrow functions make our code more concise, and simplify function scoping and the this keyword. They are one-line mini functions which work much like Lambdas in other languages like C# or Python. (See also lambdas in JavaScript). By using arrow functions, we avoid having to type the function keyword, return keyword (it’s implicit in arrow functions), and curly brackets.
 
-Convallis convallis tellus id interdum velit laoreet id donec. Iaculis urna id volutpat lacus laoreet non curabitur gravida arcu. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Feugiat in fermentum posuere urna nec tincidunt praesent semper. Donec adipiscing tristique risus nec. Mauris sit amet massa vitae tortor condimentum. Dui ut ornare lectus sit amet est placerat in. Fames ac turpis egestas maecenas pharetra. Sit amet volutpat consequat mauris nunc congue. Duis at consectetur lorem donec massa sapien faucibus et. Ut eu sem integer vitae justo eget magna fermentum. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Donec enim diam vulputate ut pharetra sit amet aliquam. Varius morbi enim nunc faucibus. Curabitur gravida arcu ac tortor dignissim convallis aenean et. Et netus et malesuada fames ac turpis.
+```javascript
+var materials = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
 
-Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Enim nulla aliquet porttitor lacus luctus accumsan tortor. Varius duis at consectetur lorem donec massa. Pharetra convallis posuere morbi leo urna. Consequat id porta nibh venenatis. Sed arcu non odio euismod. Pellentesque nec nam aliquam sem et tortor. Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet. Consequat semper viverra nam libero. Velit egestas dui id ornare arcu. Blandit massa enim nec dui nunc mattis. Bibendum est ultricies integer quis auctor. Mauris pellentesque pulvinar pellentesque habitant morbi. Quisque non tellus orci ac auctor augue mauris. Consectetur a erat nam at.
+console.log(materials.map(material => material.length));
+// expected output: Array [8, 6, 7, 9]
+```
 
-Aenean sed adipiscing diam donec. At tempor commodo ullamcorper a lacus vestibulum sed. Et leo duis ut diam. Metus aliquam eleifend mi in. Pretium viverra suspendisse potenti nullam ac tortor vitae purus. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Justo laoreet sit amet cursus sit amet. Erat imperdiet sed euismod nisi. Nascetur ridiculus mus mauris vitae ultricies leo. Magna sit amet purus gravida. Eleifend mi in nulla posuere sollicitudin aliquam ultrices. Tincidunt praesent semper feugiat nibh sed. Iaculis urna id volutpat lacus laoreet non curabitur.
+### How Much Use Is There for Arrow Functions?
+Arrow functions have been called one of the quickest wins with ES6. Developer Lars Schöning lays out how his team decided where to use arrow functions:
+
+- Use function in the global scope and for Object.prototype properties.
+- Use class for object constructors.
+- Use => everywhere else.
+
+Arrow functions, like let and const, will likely become the default functions unless function expressions or declarations are necessary. To get a sense for how much arrow functions can be used, Kevin Smith, counted function expressions in various popular libraries/frameworks and found that roughly 55% of function expressions would be candidates for arrow functions.
+
+Arrow functions are here: they’re powerful, concise, and developers love them. Perhaps it’s time for you to start using them!
+
+[Taken from here](https://www.sitepoint.com/es6-arrow-functions-new-fat-concise-syntax-javascript/)
 

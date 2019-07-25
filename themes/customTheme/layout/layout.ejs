@@ -13,6 +13,11 @@
 
 
   <style>
+    body {
+      background: rgb(244, 239, 241);
+      background: radial-gradient(circle, rgba(244, 239, 241, 1) 0%, rgba(214, 220, 228, 0.9924508426966292) 100%);
+    }
+
     .jumbotron {
       position: relative;
       overflow: hidden;
@@ -42,18 +47,17 @@
   </style>
 
 </head>
-<nav class="navbar navbar-default">
+<body>
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         Hexo by David
       </a>
     </div>
   </div>
 </nav>
-
-<body>
-  <div class='container'>
+  <div class='container-fluid'>
     <%- body %>
   </div>
 </body>
