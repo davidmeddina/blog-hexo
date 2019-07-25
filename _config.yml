@@ -79,5 +79,5 @@ theme: customTheme
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/davidmeddina/hexo-blog/hexobydavid.github.io
-  branch: master
+  repo: git@github.com:davidmeddina/hexo-blog.git
+  branch: gh-pages
